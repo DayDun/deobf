@@ -1,0 +1,29 @@
+body {
+	max-width: 1000px;
+	margin: 8px auto;
+	
+	font-family: Arial;
+}
+
+#editor {
+	height: 600px;
+	border: 1px solid #999;
+	border-radius: 4px;
+}
+
+#deobf {
+	margin: 8px 0;
+	padding: 6px 8px;
+	background-color: #ececec;
+	border: 1px solid #999;
+	border-radius: 3px;
+	font-size: 16px;
+}
+
+.code {
+	display: inline-block;
+	padding: 2px;
+	font-family: Consolas, Monospace;
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: 2px;
+}

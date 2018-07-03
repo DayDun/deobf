@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>DeObf</title>
+		<link href="style.css" rel="stylesheet">
+		<script src="https://ace.c9.io/build/src/ace.js"></script>
+		<script src="http://esprima.org/esprima.js"></script>
+		<script src="http://esprima.org/test/3rdparty/escodegen.browser.js"></script>
+		<script src="main.js"></script>
+	</head>
+	<body>
+		<div id="editor">var a = [
+    'log',
+    'Hello\x20World!'
+];
+var b = function (c, d) {
+    c = c - 0x0;
+    var e = a[c];
+    return e;
+};
+function hi() {
+    console[b('0x0')](b('0x1'));
+}
+hi();</div>
+	<button id="deobf">DeObfuscate</button>
+	<label for="stringArray">String Array <input id="stringArray" type="checkbox"></label>
+	<label for="rotateArray">Rotate String Array <input id="rotateArray" type="checkbox"></label>
+	<label for="arrayEncoding">String Array Encoding <select id="arrayEncoding">
+		<option value="off">Off</option>
+		<option value="base64">Base64</option>
+		<option value="rc4">RC4</option>
+	</select></label>
+	
+	<h4>Info:</h4>
+	<ul>
+		<li>Resolves <span class="code">x["y"]</span> into <span class="code">x.y</span></li>
+		<li>Resolves <span class="code">![]</span> into <span class="code">false</span></li>
+		<li>Resolves <span class="code">!false</span> into <span class="code">true</span> and <span class="code">!true</span> into <span class="code">false</span></li>
+		<li>Resolves Hexadecimal variable names like <span class="code">_0x123</span> into more easily read alphanumerical names</li>
+	</ul>
+	</body>
+</html>
