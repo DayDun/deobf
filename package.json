@@ -1,0 +1,25 @@
+{
+	"name": "deobf",
+	"version": "1.0.0",
+	"description": "A JavaScript de-obfuscator",
+	"private": true,
+	"dependencies": {
+		"escodegen": "^1.11.1",
+		"escope": "^3.6.0",
+		"esprima": "^4.0.1",
+		"estraverse": "^4.2.0"
+	},
+	"devDependencies": {
+		"webpack": "^4.30.0",
+		"webpack-cli": "^3.3.0",
+		"webpack-dev-server": "^3.3.1",
+		"jest": "^24.8.0"
+	},
+	"scripts": {
+		"start": "webpack-dev-server --open --mode=development",
+		"build": "webpack --mode=production",
+		"test": "jest"
+	},
+	"author": "DayDun",
+	"license": "ISC"
+}
