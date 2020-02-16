@@ -217,6 +217,10 @@ let recurseKeys = {
 		"left",
 		"right"
 	],
+	[esprima.Syntax.AssignmentPattern]: [
+		"left",
+		"right"
+	],
 	[esprima.Syntax.ArrayExpression]: ["elements"],
 	[esprima.Syntax.ArrayPattern]: ["elements"],
 	[esprima.Syntax.ArrowFunctionExpression]: [
