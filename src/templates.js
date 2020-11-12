@@ -293,7 +293,7 @@ const StringArrayCallsWrapper = function(stringArrayName, type, selfDefending, g
 
 const SingleCallTemplate = function() {
 	return `
-		var $singleCall = (function(){
+		var $singleCall = function(){
 			var $firstCall = true;
 			
 			return function($context, $fn) {
@@ -309,56 +309,25 @@ const SingleCallTemplate = function() {
 				
 				return $rfn;
 			}
-		})();
+		}();
 	`;
 };
 
 const SelfDefendingTemplate = function(singleCallName) {
 	return `
-		var $selfDefendingFunctionName = ${singleCallName}(this, function () {
-			var $func1 = function(){return "dev";},
-				$func2 = function () {
-					return "window";
-				};
-				
-			var $test1 = function() {
-				var $regExp1 = new RegExp("\\\\w+ *\\\\(\\\\) *{\\\\w+ *['|\\"].+['|\\"];? *}");
-				
-				return !$regExp1.test($func1.toString());
-			};
-			
-			var $test2 = function() {
-				var $regExp2 = new RegExp("(\\\\\\\\[x|u](\\\\w){2,4})+");
-				
-				return $regExp2.test($func2.toString());
-			};
-			
-			var $recursiveFunc1 = function($string1) {
-				var $i1 = ~-1 >> 1 + 255 % 0;
-								
-				if ($string1.indexOf("i" === $i1)) {
-					$recursiveFunc2($string1);
-				}
-			};
-			
-			var $recursiveFunc2 = function($string2) {
-				var $i2 = ~-4 >> 1 + 255 % 0;
-				
-				if ($string2.indexOf("true"[3]) !== $i2) {
-					$recursiveFunc1($string2);
-				}
-			};
-			
-			if (!$test1()) {
-				if (!$test2()) {
-					$recursiveFunc1("indеxOf");
-				} else {
-					$recursiveFunc1("indexOf");
-				}
-			} else {
-				$recursiveFunc1("indеxOf");
-			}
-		});
+        var $selfDefendingFunctionName = ${singleCallName}(this, function () {
+            var $test = function () {
+                var $regExp = $test
+                    .constructor('return /" + this + "/')()
+                    .constructor('^([^ ]+( +[^ ]+)+)+[^ ]}');
+                
+                return !$regExp.test($selfDefendingFunctionName);
+            };
+            
+            return $test();
+        });
+        
+        $selfDefendingFunctionName();
 	`;
 };
 
